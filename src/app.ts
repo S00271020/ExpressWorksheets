@@ -1,10 +1,19 @@
 import express, { Application, Request, Response } from "express";
 import carRoutes from "./routes/cars";
 import { env } from "./config/env";
+import { connectDB } from "./config/database";
 
-const PORT = env.port;
+const port = env.port;
 
 const app: Application = express();
+
+const startServer = async () => {
+  await connectDB();
+
+  app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
+};
 
 app.use(express.json());
 
@@ -34,6 +43,4 @@ app.get("/judd", async (_req: Request, res: Response) => {
 
 app.use("/api/v1/cars", carRoutes);
 
-app.listen(PORT, () => {
-  console.log("Server is running on port", PORT);
-});
+startServer();
