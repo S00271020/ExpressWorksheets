@@ -17,7 +17,7 @@ const startServer = async () => {
 };
 
 app.use(express.json());
-app.use(authenticateKey);
+app.use("/api/v1/cars", authenticateKey, carRoutes);
 
 app.use((req, _res, next) => {
   console.log(`${req.method} ${req.originalUrl}`);

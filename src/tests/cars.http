@@ -3,6 +3,7 @@
 ### Create a test car
 # @name postACar
 POST {{endpoint}} HTTP/1.1
+x-api-key: blahblah
 Content-Type: application/json
 
 {
@@ -15,12 +16,15 @@ Content-Type: application/json
 
 ### Get all cars
 GET {{endpoint}} HTTP/1.1
+x-api-key: blahblah
 
 ### Get the test car
 GET {{endpoint}}/{{newCar}} HTTP/1.1
+x-api-key: blahblah
 
 ### Update the test car
 PUT {{endpoint}}/{{newCar}} HTTP/1.1
+x-api-key: blahblah
 Content-Type: application/json
 
 {
@@ -30,3 +34,4 @@ Content-Type: application/json
 
 ### Delete the test car
 DELETE {{endpoint}}/{{newCar}} HTTP/1.1
+x-api-key: blahblah
